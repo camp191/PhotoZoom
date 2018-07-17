@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  ZoomVC.swift
 //  PhotoZoom
 //
 //  Created by Thanapat Sorralump on 16/7/2561 BE.
@@ -8,13 +8,13 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
+class ZoomVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
     }
-
-
+    
+    @IBAction func closeVC(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+    }
+    
 }
-

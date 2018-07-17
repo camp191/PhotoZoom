@@ -7,21 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D07D17B020FE47110040BF83 /* FadeVCAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07D17AF20FE47110040BF83 /* FadeVCAnimation.swift */; };
 		D0C4DFC120FCFC67000EA7FA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C4DFC020FCFC67000EA7FA /* AppDelegate.swift */; };
-		D0C4DFC320FCFC67000EA7FA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C4DFC220FCFC67000EA7FA /* ViewController.swift */; };
+		D0C4DFC320FCFC67000EA7FA /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C4DFC220FCFC67000EA7FA /* MainVC.swift */; };
 		D0C4DFC620FCFC67000EA7FA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0C4DFC420FCFC67000EA7FA /* Main.storyboard */; };
 		D0C4DFC820FCFC69000EA7FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0C4DFC720FCFC69000EA7FA /* Assets.xcassets */; };
 		D0C4DFCB20FCFC69000EA7FA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0C4DFC920FCFC69000EA7FA /* LaunchScreen.storyboard */; };
+		D0C4DFD320FCFE8C000EA7FA /* ZoomVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C4DFD220FCFE8C000EA7FA /* ZoomVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D07D17AF20FE47110040BF83 /* FadeVCAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadeVCAnimation.swift; sourceTree = "<group>"; };
 		D0C4DFBD20FCFC67000EA7FA /* PhotoZoom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoZoom.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0C4DFC020FCFC67000EA7FA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D0C4DFC220FCFC67000EA7FA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D0C4DFC220FCFC67000EA7FA /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		D0C4DFC520FCFC67000EA7FA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D0C4DFC720FCFC69000EA7FA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D0C4DFCA20FCFC69000EA7FA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D0C4DFCC20FCFC69000EA7FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D0C4DFD220FCFE8C000EA7FA /* ZoomVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,11 +59,13 @@
 			isa = PBXGroup;
 			children = (
 				D0C4DFC020FCFC67000EA7FA /* AppDelegate.swift */,
-				D0C4DFC220FCFC67000EA7FA /* ViewController.swift */,
+				D0C4DFC220FCFC67000EA7FA /* MainVC.swift */,
 				D0C4DFC420FCFC67000EA7FA /* Main.storyboard */,
+				D0C4DFD220FCFE8C000EA7FA /* ZoomVC.swift */,
 				D0C4DFC720FCFC69000EA7FA /* Assets.xcassets */,
 				D0C4DFC920FCFC69000EA7FA /* LaunchScreen.storyboard */,
 				D0C4DFCC20FCFC69000EA7FA /* Info.plist */,
+				D07D17AF20FE47110040BF83 /* FadeVCAnimation.swift */,
 			);
 			path = PhotoZoom;
 			sourceTree = "<group>";
@@ -135,8 +141,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D0C4DFC320FCFC67000EA7FA /* ViewController.swift in Sources */,
+				D0C4DFC320FCFC67000EA7FA /* MainVC.swift in Sources */,
+				D07D17B020FE47110040BF83 /* FadeVCAnimation.swift in Sources */,
 				D0C4DFC120FCFC67000EA7FA /* AppDelegate.swift in Sources */,
+				D0C4DFD320FCFE8C000EA7FA /* ZoomVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,6 +291,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6M47TVX487;
 				INFOPLIST_FILE = PhotoZoom/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -300,6 +309,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6M47TVX487;
 				INFOPLIST_FILE = PhotoZoom/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
