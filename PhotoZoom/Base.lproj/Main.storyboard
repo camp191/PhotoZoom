@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14295.6" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14295.6" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="etf-N3-YYh">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--MainVC-->
+        <!--CamPus-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="MainVC" customModule="PhotoZoom" customModuleProvider="target" sceneMemberID="viewController">
@@ -17,34 +17,61 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="me" translatesAutoresizingMaskIntoConstraints="NO" id="hZc-NX-dna">
-                                <rect key="frame" x="0.0" y="146" width="375" height="375"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="375" id="Kvt-zs-TDu"/>
-                                    <constraint firstAttribute="height" constant="375" id="lhq-CT-mrH"/>
-                                </constraints>
-                            </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YV9-K5-ufW">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="ImageCell" rowHeight="255" id="YVj-DK-UwE" customClass="ImageTableViewCell" customModule="PhotoZoom" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="255"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YVj-DK-UwE" id="hoZ-Jn-30e">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="255"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hZc-NX-dna">
+                                                    <rect key="frame" x="10" y="10" width="355" height="235"/>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="hZc-NX-dna" secondAttribute="trailing" constant="10" id="71a-UH-g8w"/>
+                                                <constraint firstAttribute="bottom" secondItem="hZc-NX-dna" secondAttribute="bottom" constant="10" id="7Gk-Ep-BQ5"/>
+                                                <constraint firstItem="hZc-NX-dna" firstAttribute="top" secondItem="hoZ-Jn-30e" secondAttribute="top" constant="10" id="RrJ-rM-DSZ"/>
+                                                <constraint firstItem="hZc-NX-dna" firstAttribute="leading" secondItem="hoZ-Jn-30e" secondAttribute="leading" constant="10" id="atE-rw-8oT"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="ivPic" destination="hZc-NX-dna" id="WsT-cH-oBg"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="Alw-NI-S27"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="ARh-0Z-W6S"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="hZc-NX-dna" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="bj5-K8-yni"/>
-                            <constraint firstItem="hZc-NX-dna" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="fEa-sh-PrY"/>
+                            <constraint firstItem="YV9-K5-ufW" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="GdN-Z3-FH4"/>
+                            <constraint firstItem="YV9-K5-ufW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Xqe-aL-Ymw"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="YV9-K5-ufW" secondAttribute="trailing" id="nYj-eo-Doi"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="YV9-K5-ufW" secondAttribute="bottom" id="q6A-lT-iH7"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" title="CamPus" id="LiB-EW-t6P"/>
                     <connections>
-                        <outlet property="ivPic" destination="hZc-NX-dna" id="2pK-Td-lWx"/>
-                        <segue destination="FZB-8P-UKX" kind="show" identifier="goToZoom" id="OHu-Eg-3BX"/>
+                        <outlet property="tableView" destination="YV9-K5-ufW" id="ATH-t0-8kP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
+            <point key="canvasLocation" x="1076" y="133.5832083958021"/>
         </scene>
         <!--ZoomVC-->
         <scene sceneID="h7n-IH-a26">
             <objects>
-                <viewController id="FZB-8P-UKX" customClass="ZoomVC" customModule="PhotoZoom" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ImageZoomVC" id="FZB-8P-UKX" customClass="ZoomVC" customModule="PhotoZoom" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WBc-wW-URt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -99,7 +126,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7HD-y8-xOk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1045.5999999999999" y="133.5832083958021"/>
+            <point key="canvasLocation" x="2118" y="134"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="mud-iX-tMR">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="etf-N3-YYh" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="p72-wz-bfr">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="TsN-kb-8cY"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ctx-wB-83O" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
         </scene>
     </scenes>
     <resources>

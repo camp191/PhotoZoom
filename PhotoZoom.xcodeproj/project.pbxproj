@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D04FAC782103460600A0866B /* ImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04FAC772103460600A0866B /* ImageTableViewCell.swift */; };
 		D07D17B020FE47110040BF83 /* FadeVCAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07D17AF20FE47110040BF83 /* FadeVCAnimation.swift */; };
 		D0C4DFC120FCFC67000EA7FA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C4DFC020FCFC67000EA7FA /* AppDelegate.swift */; };
 		D0C4DFC320FCFC67000EA7FA /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C4DFC220FCFC67000EA7FA /* MainVC.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D04FAC772103460600A0866B /* ImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTableViewCell.swift; sourceTree = "<group>"; };
 		D07D17AF20FE47110040BF83 /* FadeVCAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadeVCAnimation.swift; sourceTree = "<group>"; };
 		D0C4DFBD20FCFC67000EA7FA /* PhotoZoom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoZoom.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0C4DFC020FCFC67000EA7FA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -60,6 +62,7 @@
 			children = (
 				D0C4DFC020FCFC67000EA7FA /* AppDelegate.swift */,
 				D0C4DFC220FCFC67000EA7FA /* MainVC.swift */,
+				D04FAC772103460600A0866B /* ImageTableViewCell.swift */,
 				D0C4DFC420FCFC67000EA7FA /* Main.storyboard */,
 				D0C4DFD220FCFE8C000EA7FA /* ZoomVC.swift */,
 				D0C4DFC720FCFC69000EA7FA /* Assets.xcassets */,
@@ -143,6 +146,7 @@
 			files = (
 				D0C4DFC320FCFC67000EA7FA /* MainVC.swift in Sources */,
 				D07D17B020FE47110040BF83 /* FadeVCAnimation.swift in Sources */,
+				D04FAC782103460600A0866B /* ImageTableViewCell.swift in Sources */,
 				D0C4DFC120FCFC67000EA7FA /* AppDelegate.swift in Sources */,
 				D0C4DFD320FCFE8C000EA7FA /* ZoomVC.swift in Sources */,
 			);
