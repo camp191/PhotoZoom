@@ -49,6 +49,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RcQ-fZ-BDb">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="me" translatesAutoresizingMaskIntoConstraints="NO" id="h3a-L7-ptz">
+                                        <rect key="frame" x="0.0" y="0.0" width="960" height="960"/>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="h3a-L7-ptz" secondAttribute="trailing" id="I8z-ZE-FYp"/>
+                                    <constraint firstAttribute="bottom" secondItem="h3a-L7-ptz" secondAttribute="bottom" id="MXX-ZM-sgf"/>
+                                    <constraint firstItem="h3a-L7-ptz" firstAttribute="top" secondItem="RcQ-fZ-BDb" secondAttribute="top" id="WpX-ok-iNr"/>
+                                    <constraint firstItem="h3a-L7-ptz" firstAttribute="leading" secondItem="RcQ-fZ-BDb" secondAttribute="leading" id="oPo-gn-oAM"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="delegate" destination="FZB-8P-UKX" id="lPM-eZ-VRD"/>
+                                </connections>
+                            </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HjI-oD-6G1">
                                 <rect key="frame" x="325" y="20" width="30" height="45"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="27"/>
@@ -60,13 +77,25 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                         <constraints>
+                            <constraint firstItem="RcQ-fZ-BDb" firstAttribute="top" secondItem="WBc-wW-URt" secondAttribute="top" id="7bW-6B-gf9"/>
+                            <constraint firstItem="x3n-cW-Tmb" firstAttribute="bottom" secondItem="RcQ-fZ-BDb" secondAttribute="bottom" id="908-9E-Yvf"/>
                             <constraint firstItem="HjI-oD-6G1" firstAttribute="top" secondItem="WBc-wW-URt" secondAttribute="top" constant="20" id="D3u-pa-hm0"/>
+                            <constraint firstItem="x3n-cW-Tmb" firstAttribute="trailing" secondItem="RcQ-fZ-BDb" secondAttribute="trailing" id="EFD-CK-NV8"/>
+                            <constraint firstItem="RcQ-fZ-BDb" firstAttribute="leading" secondItem="x3n-cW-Tmb" secondAttribute="leading" id="JiC-kX-0bc"/>
                             <constraint firstItem="x3n-cW-Tmb" firstAttribute="trailing" secondItem="HjI-oD-6G1" secondAttribute="trailing" constant="20" id="b7U-q5-vCs"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="x3n-cW-Tmb"/>
                     </view>
+                    <connections>
+                        <outlet property="ctImageViewBottom" destination="MXX-ZM-sgf" id="oYz-ti-HIT"/>
+                        <outlet property="ctImageViewLeft" destination="oPo-gn-oAM" id="gpg-Kq-f95"/>
+                        <outlet property="ctImageViewRight" destination="I8z-ZE-FYp" id="3QW-da-QG6"/>
+                        <outlet property="ctImageViewTop" destination="WpX-ok-iNr" id="N58-BP-BSX"/>
+                        <outlet property="imageView" destination="h3a-L7-ptz" id="sLx-eE-asP"/>
+                        <outlet property="scrollView" destination="RcQ-fZ-BDb" id="Gl1-zb-hpG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7HD-y8-xOk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

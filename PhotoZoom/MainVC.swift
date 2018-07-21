@@ -47,7 +47,7 @@ extension MainVC: UIViewControllerTransitioningDelegate {
     
     
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return nil
+        return fadeAnimation
     }
     
 }
