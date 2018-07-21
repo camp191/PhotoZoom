@@ -13,7 +13,7 @@ class MainVC: UIViewController {
     @IBOutlet weak var tableView: UITableView!
 
     let fadeAnimation = FadeVCAnimation()
-    var pics: [UIImage] = [UIImage(named: "me")!]
+    var pics: [UIImage] = [UIImage(named: "me")!, UIImage(named: "3")!, UIImage(named: "4")!]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,6 +49,8 @@ extension MainVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let zoomVC = self.storyboard?.instantiateViewController(withIdentifier: "ImageZoomVC") as! ZoomVC
         zoomVC.transitioningDelegate = self
+        zoomVC.setupImage(pic: pics[indexPath.row])
+        
         DispatchQueue.main.async {
             self.present(zoomVC, animated: true, completion: nil)
         }

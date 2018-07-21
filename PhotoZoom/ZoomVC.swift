@@ -10,6 +10,7 @@ import UIKit
 
 class ZoomVC: UIViewController {
     
+    @IBOutlet weak var btnClose: UIButton!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var ctImageViewTop: NSLayoutConstraint!
@@ -17,30 +18,38 @@ class ZoomVC: UIViewController {
     @IBOutlet weak var ctImageViewLeft: NSLayoutConstraint!
     @IBOutlet weak var ctImageViewRight: NSLayoutConstraint!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
+    var minScale: CGFloat = 1
+    var pic: UIImage?
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
+        if let pic = pic {
+            imageView.image = pic
+        }
         updateMinZoomScaleForSize(view.bounds.size)
+    }
+    
+    func setupImage(pic: UIImage) {
+        self.pic = pic
     }
     
     fileprivate func updateMinZoomScaleForSize(_ size: CGSize) {
         let widthScale = size.width / imageView.bounds.width
         let heightScale = size.height / imageView.bounds.height
         let minScale = min(widthScale, heightScale)
+        self.minScale = minScale
         
         scrollView.minimumZoomScale = minScale
         scrollView.zoomScale = minScale
     }
     
     func updateConstraintsForSize(_ size: CGSize) {
-        let yOffset = max(0, (size.height - imageView.frame.height) / 2)
+        guard let pic = pic else { return }
+        let yOffset: CGFloat = (size.height - pic.size.height * minScale) / 2
         ctImageViewTop.constant = yOffset
         ctImageViewBottom.constant = yOffset
-        
-        let xOffset = max(0, (size.width - imageView.frame.width) / 2)
+
+        let xOffset = max(0, (size.width - pic.size.width * minScale) / 2)
         ctImageViewLeft.constant = xOffset
         ctImageViewRight.constant = xOffset
         
@@ -60,5 +69,13 @@ extension ZoomVC: UIScrollViewDelegate {
     
     func scrollViewDidZoom(_ scrollView: UIScrollView) {
         updateConstraintsForSize(view.bounds.size)
+    }
+    
+    func scrollViewWillBeginZooming(_ scrollView: UIScrollView, with view: UIView?) {
+        btnClose.isHidden = true
+    }
+    
+    func scrollViewDidEndZooming(_ scrollView: UIScrollView, with view: UIView?, atScale scale: CGFloat) {
+        btnClose.isHidden = scale == minScale ? false : true
     }
 }

@@ -116,6 +116,7 @@
                         <viewLayoutGuide key="safeArea" id="x3n-cW-Tmb"/>
                     </view>
                     <connections>
+                        <outlet property="btnClose" destination="HjI-oD-6G1" id="X3U-Cf-tSg"/>
                         <outlet property="ctImageViewBottom" destination="MXX-ZM-sgf" id="oYz-ti-HIT"/>
                         <outlet property="ctImageViewLeft" destination="oPo-gn-oAM" id="gpg-Kq-f95"/>
                         <outlet property="ctImageViewRight" destination="I8z-ZE-FYp" id="3QW-da-QG6"/>
