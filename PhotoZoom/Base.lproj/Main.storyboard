@@ -79,19 +79,20 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RcQ-fZ-BDb">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
-                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="me" translatesAutoresizingMaskIntoConstraints="NO" id="h3a-L7-ptz">
-                                        <rect key="frame" x="0.0" y="0.0" width="960" height="960"/>
+                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="100" placeholderIntrinsicHeight="100" translatesAutoresizingMaskIntoConstraints="NO" id="h3a-L7-ptz">
+                                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                         <gestureRecognizers/>
                                         <connections>
                                             <outletCollection property="gestureRecognizers" destination="K5n-1T-psc" appends="YES" id="EOQ-uf-xWU"/>
                                             <outletCollection property="gestureRecognizers" destination="Adv-vY-yjc" appends="YES" id="dfG-4T-9G9"/>
                                             <outletCollection property="gestureRecognizers" destination="DST-9Y-5RW" appends="YES" id="nym-Py-bCo"/>
+                                            <outletCollection property="gestureRecognizers" destination="Uyc-Aa-rWi" appends="YES" id="0Sv-nu-cjU"/>
                                         </connections>
                                     </imageView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="h3a-L7-ptz" secondAttribute="trailing" id="I8z-ZE-FYp"/>
-                                    <constraint firstAttribute="bottom" secondItem="h3a-L7-ptz" secondAttribute="bottom" id="MXX-ZM-sgf"/>
+                                    <constraint firstItem="h3a-L7-ptz" firstAttribute="trailing" secondItem="RcQ-fZ-BDb" secondAttribute="trailing" id="I8z-ZE-FYp"/>
+                                    <constraint firstItem="h3a-L7-ptz" firstAttribute="bottom" secondItem="RcQ-fZ-BDb" secondAttribute="bottom" id="MXX-ZM-sgf"/>
                                     <constraint firstItem="h3a-L7-ptz" firstAttribute="top" secondItem="RcQ-fZ-BDb" secondAttribute="top" id="WpX-ok-iNr"/>
                                     <constraint firstItem="h3a-L7-ptz" firstAttribute="leading" secondItem="RcQ-fZ-BDb" secondAttribute="leading" id="oPo-gn-oAM"/>
                                 </constraints>
@@ -147,6 +148,11 @@
                         <action selector="swipeToDismiss:" destination="FZB-8P-UKX" id="iUD-Av-3pv"/>
                     </connections>
                 </swipeGestureRecognizer>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="Uyc-Aa-rWi">
+                    <connections>
+                        <action selector="pressedLongToShowMenu:" destination="FZB-8P-UKX" id="gha-2U-8QL"/>
+                    </connections>
+                </pongPressGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2118" y="134"/>
         </scene>
@@ -169,7 +175,4 @@
             <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="me" width="960" height="960"/>
-    </resources>
 </document>

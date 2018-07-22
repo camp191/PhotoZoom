@@ -44,12 +44,11 @@ class ZoomVC: UIViewController {
     }
     
     fileprivate func updateConstraintsForSize(_ size: CGSize) {
-        guard let pic = pic else { return }
-        let yOffset: CGFloat = (size.height - pic.size.height * minScale) / 2
+        let yOffset = max(0, (size.height - ivPic.frame.height) / 2)
         ctImageViewTop.constant = yOffset
         ctImageViewBottom.constant = yOffset
 
-        let xOffset = max(0, (size.width - pic.size.width * minScale) / 2)
+        let xOffset = max(0, (size.width - ivPic.frame.width) / 2)
         ctImageViewLeft.constant = xOffset
         ctImageViewRight.constant = xOffset
         
@@ -73,6 +72,18 @@ class ZoomVC: UIViewController {
     @IBAction func swipeToDismiss(_ sender: UISwipeGestureRecognizer) {
         if sender.state == .ended, scrollView.zoomScale == minScale {
             dismiss(animated: true, completion: nil)
+        }
+    }
+    
+    @IBAction func pressedLongToShowMenu(_ sender: UILongPressGestureRecognizer) {
+        if sender.state == .changed {
+            let alertVC = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+            let saveBtn = UIAlertAction(title: "Save Picture", style: .default, handler: nil)
+            let cancelBtn = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            alertVC.addAction(saveBtn)
+            alertVC.addAction(cancelBtn)
+            
+            present(alertVC, animated: true, completion: nil)
         }
     }
     
