@@ -79,8 +79,14 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RcQ-fZ-BDb">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="me" translatesAutoresizingMaskIntoConstraints="NO" id="h3a-L7-ptz">
+                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="me" translatesAutoresizingMaskIntoConstraints="NO" id="h3a-L7-ptz">
                                         <rect key="frame" x="0.0" y="0.0" width="960" height="960"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="K5n-1T-psc" appends="YES" id="EOQ-uf-xWU"/>
+                                            <outletCollection property="gestureRecognizers" destination="Adv-vY-yjc" appends="YES" id="dfG-4T-9G9"/>
+                                            <outletCollection property="gestureRecognizers" destination="DST-9Y-5RW" appends="YES" id="nym-Py-bCo"/>
+                                        </connections>
                                     </imageView>
                                 </subviews>
                                 <constraints>
@@ -121,11 +127,26 @@
                         <outlet property="ctImageViewLeft" destination="oPo-gn-oAM" id="gpg-Kq-f95"/>
                         <outlet property="ctImageViewRight" destination="I8z-ZE-FYp" id="3QW-da-QG6"/>
                         <outlet property="ctImageViewTop" destination="WpX-ok-iNr" id="N58-BP-BSX"/>
-                        <outlet property="imageView" destination="h3a-L7-ptz" id="sLx-eE-asP"/>
+                        <outlet property="ivPic" destination="h3a-L7-ptz" id="sLx-eE-asP"/>
                         <outlet property="scrollView" destination="RcQ-fZ-BDb" id="Gl1-zb-hpG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7HD-y8-xOk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer numberOfTapsRequired="2" id="K5n-1T-psc">
+                    <connections>
+                        <action selector="doubleTapped:" destination="FZB-8P-UKX" id="Jke-8c-niG"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <swipeGestureRecognizer direction="up" id="Adv-vY-yjc">
+                    <connections>
+                        <action selector="swipeToDismiss:" destination="FZB-8P-UKX" id="vxf-bf-tvA"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="down" id="DST-9Y-5RW">
+                    <connections>
+                        <action selector="swipeToDismiss:" destination="FZB-8P-UKX" id="iUD-Av-3pv"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2118" y="134"/>
         </scene>

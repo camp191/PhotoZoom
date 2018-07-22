@@ -11,7 +11,7 @@ import UIKit
 class ZoomVC: UIViewController {
     
     @IBOutlet weak var btnClose: UIButton!
-    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var ivPic: UIImageView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var ctImageViewTop: NSLayoutConstraint!
     @IBOutlet weak var ctImageViewBottom: NSLayoutConstraint!
@@ -24,7 +24,7 @@ class ZoomVC: UIViewController {
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         if let pic = pic {
-            imageView.image = pic
+            ivPic.image = pic
         }
         updateMinZoomScaleForSize(view.bounds.size)
     }
@@ -34,8 +34,8 @@ class ZoomVC: UIViewController {
     }
     
     fileprivate func updateMinZoomScaleForSize(_ size: CGSize) {
-        let widthScale = size.width / imageView.bounds.width
-        let heightScale = size.height / imageView.bounds.height
+        let widthScale = size.width / ivPic.bounds.width
+        let heightScale = size.height / ivPic.bounds.height
         let minScale = min(widthScale, heightScale)
         self.minScale = minScale
         
@@ -43,7 +43,7 @@ class ZoomVC: UIViewController {
         scrollView.zoomScale = minScale
     }
     
-    func updateConstraintsForSize(_ size: CGSize) {
+    fileprivate func updateConstraintsForSize(_ size: CGSize) {
         guard let pic = pic else { return }
         let yOffset: CGFloat = (size.height - pic.size.height * minScale) / 2
         ctImageViewTop.constant = yOffset
@@ -60,11 +60,28 @@ class ZoomVC: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func doubleTapped(_ sender: UITapGestureRecognizer) {
+        if sender.state == .ended {
+            UIView.animate(withDuration: 0.25) {
+                self.scrollView.zoomScale = self.scrollView.zoomScale != self.minScale ? self.minScale : 1.0
+                self.btnClose.isHidden = self.scrollView.zoomScale == self.minScale ? false : true
+                self.view.layoutIfNeeded()
+            }
+        }
+    }
+    
+    @IBAction func swipeToDismiss(_ sender: UISwipeGestureRecognizer) {
+        if sender.state == .ended, scrollView.zoomScale == minScale {
+            dismiss(animated: true, completion: nil)
+        }
+    }
+    
+    
 }
 
 extension ZoomVC: UIScrollViewDelegate {
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
-        return imageView
+        return ivPic
     }
     
     func scrollViewDidZoom(_ scrollView: UIScrollView) {
